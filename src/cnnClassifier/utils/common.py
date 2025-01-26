@@ -5,13 +5,14 @@ from cnnClassifier import logger
 import json
 import joblib
 from ensure import ensure_annotations
-from box import ConfigBox
+# from box import ConfigBox
+from box import Box
 from pathlib import Path
 from typing import Any
 import base64
 
 @ensure_annotations
-def read_yaml(file_path: str) -> Any:
+def read_yaml(file_path: str) -> Box:
     """
     Read the yaml file and return the content
     :param file_path: str: path to the yaml file
@@ -21,7 +22,8 @@ def read_yaml(file_path: str) -> Any:
         with open(file_path, "r") as file:
             content = yaml.safe_load(file)
             logger.info(f"Reading the yaml file: {file_path}")
-            return ConfigBox(content)
+            # return ConfigBox(content)
+            return Box(content)
     except BoxValueError:
         return ValueError("File empty!")
     except Exception as e:
@@ -62,7 +64,8 @@ def save_json(path: Path, data: dict):
         logger.error(f"Error: {e}")
 
 @ensure_annotations
-def load_json(path: Path)->ConfigBox:
+# def load_json(path: Path)->ConfigBox:
+def load_json(path: Path)->Box:
     """
     Load the json file and return the content
     :param path: Path: path to the json file
@@ -72,7 +75,8 @@ def load_json(path: Path)->ConfigBox:
         with open(path, 'r') as f:
             data = json.load(f)
         logger.info(f"Json file loaded from: {path}")
-        return ConfigBox(data)
+        # return ConfigBox(data)
+        return Box(data)
     except Exception as e:
         logger.error(f"Error in loading json file: {path}")
         logger.error(f"Error: {e}")

@@ -1,0 +1,10 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  bucket_name: "brainimagesmri"
+  region: "us-east-1" # Update with your region
+  access_key: ${ACCESS_KEY}
+  secret_key: ${SECRET_KEY}
+  file_key: "brain/" # Path to the file in the bucket
+  local_data_file: artifacts/data_ingestion/data
