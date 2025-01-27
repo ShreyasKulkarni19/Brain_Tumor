@@ -8,3 +8,5 @@ data_ingestion:
   secret_key: ${SECRET_KEY}
   file_key: "brain/" # Path to the file in the bucket
   local_data_file: artifacts/data_ingestion/data
+  file_key: "brain/Training" # Path to the file in the bucket
+  local_data_file: artifacts/data_ingestion/data/training
